@@ -1,50 +1,46 @@
-import * as React from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  Button,
-  StyleSheet,
-  Image,
-} from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import ProductList from './screens/ProductList';
-import EmployeeList from './screens/EmployeeList';
-import OrderList from './screens/OrderList';
-import ProductDetails from './screens/ProductDetails';
-import OrderDetails from './screens/OrderDetails';
-import EmployeeDetails from './screens/EmployeeDetails';
+import * as React from "react";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import ProductList from "./screens/ProductList";
+import EmployeeList from "./screens/EmployeeList";
+import OrderList from "./screens/OrderList";
+import ProductDetails from "./screens/ProductDetails";
+import OrderDetails from "./screens/OrderDetails";
+import EmployeeDetails from "./screens/EmployeeDetails";
+import Login from "./screens/Login";
+
 function HomeScreen({ navigation }) {
   return (
     <View style={style.container}>
       <Text
         style={{
           fontSize: 20,
-          
-          fontFamily: 'poppins',
           paddingLeft: 20,
           paddingRight: 20,
-          textAlign: 'center',
-        }}>
-        Admin Application{' '}
+          textAlign: "center",
+        }}
+      >
+        Admin Application{" "}
       </Text>
       <TouchableOpacity style={style.touch}>
         <Text
           style={style.text}
-          onPress={() => navigation.navigate('Products')}>
+          onPress={() => navigation.navigate("Products")}
+        >
           Products
         </Text>
       </TouchableOpacity>
       <TouchableOpacity style={style.touch}>
         <Text
           style={style.text}
-          onPress={() => navigation.navigate('Employees')}>
+          onPress={() => navigation.navigate("Employees")}
+        >
           Employees
         </Text>
       </TouchableOpacity>
       <TouchableOpacity style={style.touch}>
-        <Text style={style.text} onPress={() => navigation.navigate('Orders')}>
+        <Text style={style.text} onPress={() => navigation.navigate("Orders")}>
           Orders
         </Text>
       </TouchableOpacity>
@@ -55,19 +51,19 @@ function HomeScreen({ navigation }) {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-evenly',
-    backgroundColor: '#467094',
+    justifyContent: "space-evenly",
+    backgroundColor: "#467094",
   },
   touch: {
-    backgroundColor: '#ffffff',
+    backgroundColor: "#ffffff",
     paddingBottom: 10,
     paddingTop: 10,
     borderRadius: 20,
   },
   text: {
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: 20,
-    fontFamily: 'poppins',
+    fontFamily: "poppins",
   },
 });
 const Stack = createStackNavigator();
@@ -78,44 +74,50 @@ export default function App() {
       <Stack.Navigator
         screenOptions={{
           headerStyle: {
-            backgroundColor: '#ffffff',
+            backgroundColor: "#ffffff",
             borderBottomWidth: 2,
-            borderBottomColor: '#000000',
+            borderBottomColor: "#000000",
           },
-          headerTintColor: '#000000',
-        }}>
+          headerTintColor: "#000000",
+        }}
+      >
+        <Stack.Screen
+          name="Login Screen"
+          options={{ headerTitleAlign: "center" }}
+          component={Login}
+        />
         <Stack.Screen
           name="Home Screen"
-          options={{ headerTitleAlign: 'center' }}
+          options={{ headerTitleAlign: "center" }}
           component={HomeScreen}
         />
         <Stack.Screen
-          options={{ title: 'Products', headerTitleAlign: 'center' }}
+          options={{ title: "Products", headerTitleAlign: "center" }}
           name="Products"
           component={ProductList}
         />
         <Stack.Screen
-          options={{ title: 'Employees', headerTitleAlign: 'center' }}
+          options={{ title: "Employees", headerTitleAlign: "center" }}
           name="Employees"
           component={EmployeeList}
         />
         <Stack.Screen
-          options={{ title: 'Orders', headerTitleAlign: 'center' }}
+          options={{ title: "Orders", headerTitleAlign: "center" }}
           name="Orders"
           component={OrderList}
         />
         <Stack.Screen
-          options={{ title: 'Product Details', headerTitleAlign: 'center' }}
+          options={{ title: "Product Details", headerTitleAlign: "center" }}
           name="ProductDetails"
           component={ProductDetails}
         />
         <Stack.Screen
-          options={{ title: 'Employee Details', headerTitleAlign: 'center' }}
+          options={{ title: "Employee Details", headerTitleAlign: "center" }}
           name="EmployeeDetails"
           component={EmployeeDetails}
         />
         <Stack.Screen
-          options={{ title: 'Order Details', headerTitleAlign: 'center' }}
+          options={{ title: "Order Details", headerTitleAlign: "center" }}
           name="OrderDetails"
           component={OrderDetails}
         />
